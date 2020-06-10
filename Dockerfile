@@ -29,8 +29,11 @@ RUN apt-get update \
     && make install \
     && echo "extension=v8js.so" > /usr/local/etc/php/conf.d/v8js.ini \
      \
-    && apt-get -y remove build-essential curl git python libglib2.0-dev \
+    && apt-get -y remove build-essential git python libglib2.0-dev \
     && apt-get -y autoremove \
     && apt-get clean \
-    && rm -rf /tmp/* \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /root/.gsutil* \
+     /root/.vpython* \
+     /tmp/* \
+     /tmp/.* \
+     /var/lib/apt/lists/*
