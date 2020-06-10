@@ -35,5 +35,4 @@ RUN apt-get update \
     && rm -rf /root/.gsutil* \
      /root/.vpython* \
      /tmp/* \
-     /tmp/.* \
      /var/lib/apt/lists/*
