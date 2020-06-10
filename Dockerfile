@@ -18,7 +18,7 @@ RUN apt-get update \
     \
     && mkdir -p /usr/local/{lib,include} \
     && cp out.gn/x64.release/lib*.so out.gn/x64.release/*_blob.bin out.gn/x64.release/icudtl.dat /usr/local/lib/ \
-    && cp -R include/* /usr/local/include/
+    && cp -R include/* /usr/local/include/ \
     \
     && cd /tmp \
     && git clone https://github.com/phpv8/v8js.git \
@@ -27,7 +27,7 @@ RUN apt-get update \
     && ./configure LDFLAGS="-lstdc++" \
     && make \
     && make install \
-    && echo "extension=v8js.so" > /usr/local/etc/php/conf.d/v8js.ini
+    && echo "extension=v8js.so" > /usr/local/etc/php/conf.d/v8js.ini \
      \
     && apt-get -y remove build-essential curl git python libglib2.0-dev \
     && apt-get -y autoremove \
